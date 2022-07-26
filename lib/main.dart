@@ -64,32 +64,7 @@ void main() {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  tileColor: Colors.grey[700],
-                  leading: Icon(
-                    Icons.shopping_bag,
-                    size: 40,
-                    color: Colors.grey[100],
-                  ),
-                  title: Text(
-                    'Your Order History',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey[100]),
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward,
-                    size: 30,
-                    color: Colors.grey[100],
-                  ),
-                ),
-              ),
+              ProfileMenuItem(),
               Padding(
                 padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
                 child: ListTile(
@@ -178,4 +153,40 @@ void main() {
       ),
     ),
   ));
+}
+
+class ProfileMenuItem extends StatelessWidget {
+  const ProfileMenuItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
+      child: ListTile(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        tileColor: Colors.grey[700],
+        leading: Icon(
+          Icons.shopping_bag,
+          size: 40,
+          color: Colors.grey[100],
+        ),
+        title: Text(
+          'Your Order History',
+          style: GoogleFonts.poppins(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: Colors.grey[100]),
+        ),
+        trailing: Icon(
+          Icons.arrow_forward,
+          size: 30,
+          color: Colors.grey[100],
+        ),
+      ),
+    );
+  }
 }
