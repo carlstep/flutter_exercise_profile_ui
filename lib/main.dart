@@ -34,6 +34,9 @@ void main() {
                   color: Colors.grey[100],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 'john@gmail.com',
                 style: GoogleFonts.poppins(
@@ -82,7 +85,7 @@ void main() {
                   ),
                   trailing: Icon(
                     Icons.arrow_forward,
-                    size: 40,
+                    size: 30,
                     color: Colors.grey[100],
                   ),
                 ),
@@ -108,7 +111,7 @@ void main() {
                   ),
                   trailing: Icon(
                     Icons.arrow_forward,
-                    size: 40,
+                    size: 30,
                     color: Colors.grey[100],
                   ),
                 ),
@@ -134,7 +137,7 @@ void main() {
                   ),
                   trailing: Icon(
                     Icons.arrow_forward,
-                    size: 40,
+                    size: 30,
                     color: Colors.grey[100],
                   ),
                 ),
