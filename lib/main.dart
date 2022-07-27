@@ -19,7 +19,7 @@ void main() {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 90,
                 backgroundImage: AssetImage(
                   'assets/images/profile.jpg',
@@ -34,7 +34,7 @@ void main() {
                   color: Colors.grey[100],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
@@ -64,79 +64,25 @@ void main() {
                   ),
                 ),
               ),
-              ProfileMenuItem(),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  tileColor: Colors.grey[700],
-                  leading: Icon(
-                    Icons.help_outline,
-                    size: 40,
-                    color: Colors.grey[100],
-                  ),
-                  title: Text(
-                    'Help and Support',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey[100]),
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward,
-                    size: 30,
-                    color: Colors.grey[100],
-                  ),
-                ),
+              const ProfileMenuItem(
+                text: 'Your Order History',
+                icon: Icons.shopping_bag_outlined,
+                arrowShown: true,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  tileColor: Colors.grey[700],
-                  leading: Icon(
-                    Icons.card_giftcard,
-                    size: 40,
-                    color: Colors.grey[100],
-                  ),
-                  title: Text(
-                    'Load Gift Voucher',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey[100]),
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward,
-                    size: 30,
-                    color: Colors.grey[100],
-                  ),
-                ),
+              const ProfileMenuItem(
+                text: 'Help and Support',
+                icon: Icons.help_outline_outlined,
+                arrowShown: true,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  tileColor: Colors.grey[700],
-                  leading: Icon(
-                    Icons.logout,
-                    size: 40,
-                    color: Colors.grey[100],
-                  ),
-                  title: Text(
-                    'Logout',
-                    style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey[100]),
-                  ),
-                ),
+              const ProfileMenuItem(
+                text: 'Load Gift Voucher',
+                icon: Icons.card_giftcard_outlined,
+                arrowShown: true,
+              ),
+              const ProfileMenuItem(
+                text: 'Logout',
+                icon: Icons.logout_outlined,
+                arrowShown: false,
               ),
             ],
           ),
@@ -156,9 +102,11 @@ void main() {
 }
 
 class ProfileMenuItem extends StatelessWidget {
-  const ProfileMenuItem({
-    Key? key,
-  }) : super(key: key);
+  const ProfileMenuItem(
+      {required this.text, required this.icon, required this.arrowShown});
+  final String text;
+  final IconData icon;
+  final bool arrowShown;
 
   @override
   Widget build(BuildContext context) {
@@ -170,22 +118,24 @@ class ProfileMenuItem extends StatelessWidget {
         ),
         tileColor: Colors.grey[700],
         leading: Icon(
-          Icons.shopping_bag,
+          icon,
           size: 40,
           color: Colors.grey[100],
         ),
         title: Text(
-          'Your Order History',
+          '$text',
           style: GoogleFonts.poppins(
               fontSize: 18,
               fontWeight: FontWeight.w500,
               color: Colors.grey[100]),
         ),
-        trailing: Icon(
-          Icons.arrow_forward,
-          size: 30,
-          color: Colors.grey[100],
-        ),
+        trailing: arrowShown
+            ? Icon(
+                Icons.arrow_forward,
+                size: 30,
+                color: Colors.grey[100],
+              )
+            :,
       ),
     );
   }
